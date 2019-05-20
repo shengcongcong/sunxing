@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/sumsung.css">
+    <title>Document</title>
+    <style>
+        .main-nav-top {
+            padding: 10px 0;
+        }
+
+        .box {
+            width: 610px;
+            margin: 10px auto;
+        }
+
+        .tb-pic a {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .tb-pic a img {
+            vertical-align: middle;
+        }
+
+        .tb-pic a {
+            *display: block;
+            *font-family: Arial;
+            *line-height: 1;
+        }
+
+        .tb-thumb {
+            margin: 10px 0 0;
+            overflow: hidden;
+        }
+
+        .tb-thumb li {
+            background: none repeat scroll 0 0 transparent;
+            float: left;
+            height: 42px;
+            margin: 0 6px 0 0;
+            overflow: hidden;
+            padding: 1px;
+        }
+
+        .tb-s310,
+        .tb-s310 a {
+            height: 310px;
+            width: 310px;
+        }
+
+        .tb-s310,
+        .tb-s310 img {
+            max-height: 310px;
+            max-width: 310px;
+        }
+
+        .tb-s310 a {
+            *font-size: 271px;
+        }
+
+        .tb-s40 a {
+            *font-size: 35px;
+        }
+
+        .tb-s40,
+        .tb-s40 a {
+            height: 40px;
+            width: 40px;
+        }
+
+        .tb-booth {
+            border: 1px solid #CDCDCD;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tb-thumb .tb-selected {
+            background: none repeat scroll 0 0 #C30008;
+            height: 40px;
+            padding: 2px;
+        }
+
+        .tb-thumb .tb-selected div {
+            background-color: #FFFFFF;
+            border: medium none;
+        }
+
+        .tb-thumb li div {
+            border: 1px solid #CDCDCD;
+        }
+
+        div.zoomDiv {
+            z-index: 999;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 200px;
+            height: 200px;
+            background: #ffffff;
+            border: 1px solid #CCCCCC;
+            display: none;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        div.zoomMask {
+            position: absolute;
+            background: url("images/mask.png") repeat scroll 0 0 transparent;
+            cursor: move;
+            z-index: 1;
+        }
+
+        .main-left {
+            float: left;
+            width: 50%;
+        }
+
+        #thumblist li a img {
+            width: 100%;
+        }
+
+        .tb-pic a img {
+            width: 100%;
+        }
+
+        .tb-booth {
+            border: none;
+        }
+
+        .tb-thumb li div {
+            border: 1px solid white;
+        }
+
+        .main-right {
+            float: left;
+            width: 50%;
+        }
+
+        .main-right input {
+            width: 240px;
+            margin-top: 10px;
+            font-size: 22px;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            text-align: center;
+            white-space: normal;
+            vertical-align: middle;
+            padding: 0;
+            border: 0;
+            margin: 40px 0;
+            color: #222;
+            background: #ccc;
+            border-radius: 0;
+            font-size: 16px;
+            background: #fff;
+            border: 1px solid #000;
+            border-radius: 24px;
+            min-width: 100px;
+            height: 48px;
+            line-height: 48px;
+            -webkit-transition: all .32s;
+            -moz-transition: all .32s;
+            -ms-transition: all .32s;
+            transition: all .32s;
+            font-weight: bold;
+            touch-action: manipulation;
+            cursor: pointer;
+        }
+
+        .main-right>.active {
+            color: white;
+            background: black;
+        }
+
+        .main-right div ul {
+            display: inline-block;
+            width: 87%;
+            box-sizing: border-box;
+        }
+
+        .main-right div {
+
+            box-sizing: border-box;
+        }
+
+        .main-right div ul li {
+            display: inline-block;
+            zoom: 1;
+            width: 150px;
+            vertical-align: middle;
+            cursor: pointer;
+            position: relative;
+            font-size: 14px;
+            border: 1px solid #ddd;
+
+            margin: 7px 8px;
+            padding: 9px 0;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .main-right div ul .active {
+            background: #006ec7;
+        }
+
+        .del li span:nth-child(1) {
+            display: inline-block;
+            width: 48px;
+            height: 22px;
+            line-height: 22px;
+            text-align: center;
+            background: #006ec7;
+            color: #fff;
+            font-size: 12px;
+            border-radius: 4px;
+            margin-right: 20px;
+        }
+
+        .price {
+            width: 85%;
+            display: inline-block;
+            background-color: #f8f8f8;
+            padding: 0 20px;
+            margin-left: 8px;
+        }
+
+        .price-top {
+            border-bottom: 2px solid white;
+        }
+
+        .price-left {
+            float: left;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .price-right {
+            float: right;
+            text-align: right
+        }
+
+        .price-now {
+            font-size: 30px;
+            font-weight: bold;
+            color: #1428a0;
+            line-height: 30px;
+            margin-bottom: 0;
+            margin-top: 2px;
+        }
+
+        .price-old {
+            font-size: 20px;
+            font-weight: bold;
+            color: #666;
+            line-height: 20px;
+            margin-bottom: 3px;
+        }
+
+        .price-bot {
+            margin: 10px 0;
+        }
+
+        .price-bot span:nth-child(1) {
+            display: inline-block;
+
+            zoom: 1;
+            margin: 0;
+            color: #fa7236;
+            font-size: 12px;
+            position: relative;
+            padding: 3px 2px;
+            background-color: #f8f4f2;
+            border: 1px solid #fa7236;
+            border-radius: 2px;
+
+
+            line-height: 1;
+        }
+
+        .main-img img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="bighead">
+
+        </div>
+        <div id="main">
+            <div class="nav-container clearfix">
+                <div class="main-nav-top">
+                    <a href="###">网上商城</a>
+                    >
+                    <a href="###">智能手机</a>
+                    >
+                    <span>Galaxy S9+</span>
+                </div>
+                <div class="main-left">
+                    <div class="main-left-top">
+                        <div class="box">
+                            <div class="tb-booth tb-pic tb-s310">
+                                <a href="images/01.jpg">
+                                    <img src="" alt="美女" rel="" class="jqzoom" />
+                                </a>
+
+                            </div>
+
+                            <ul class="tb-thumb" id="thumblist">
+
+                                <!-- <li class="tb-selected">
+                                    <div class="tb-pic tb-s40">
+                                        <a href="#">
+                                            <img src="images/01_small.jpg" mid="images/01_mid.jpg" big="images/01.jpg">
+                                        </a>
+                                    </div>
+                                </li> -->
+
+
+                            </ul>
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="main-right">
+                    <h2>Galaxy S9+</h2>
+                    <ul class="del">
+                        <li>
+                            <span>卖点</span>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span>优惠</span>优惠
+                            <span></span> 元
+                        </li>
+                        <li>
+                            <span>免息</span>购机享6期免息分期
+                        </li>
+                        <li>
+                            <span>推荐</span>推荐点击了解>>Galaxy S9
+                        </li>
+                    </ul>
+                    <div>
+                        <span>颜色</span>
+                        <ul>
+                            <li class="active">
+                                <span></span> 勃艮第红</li>
+                            <li>
+                                <span></span> 冰蓝</li>
+                            <li>
+                                <span></span> 谜底黑</li>
+                            <li>
+                                <span></span> 莱茵蓝</li>
+                            <li>
+                                <span></span> 夕雾紫</li>
+                        </ul>
+                    </div>
+
+
+
+                    <div>
+                        <span>内存</span>
+                        <ul>
+                            <li class="active">128G</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span>版本</span>
+                        <ul>
+                            <li class="active">公开版</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span>价格</span>
+                        <div class="price clearfix">
+                            <div class="price-top clearfix">
+                                <div class="price-left">
+                                    <span>夕雾紫</span>+
+                                    <span>128G</span>+
+                                    <span>公开版</span>
+
+                                </div>
+                                <div class="price-right">
+                                    <div class="price-now">￥
+                                        <span>4,999</span>.00</div>
+                                    <div class="price-old">
+                                        <del>￥
+                                            <span>6,499</span>.00</del>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="price-bot">
+                                <span>可获积分</span>
+                                基本积分
+                                <span> 4999</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <input type="button" value="加入购物车" id="addcar">
+
+
+                </div>
+            </div>
+            <div class="main-img">
+                <img src="../img/img-1-b.jpg" alt="">
+                <img src="../img/img-2-b.jpg" alt="">
+                <img src="../img/img-3-b.jpg" alt="">
+                <img src="../img/img-4-b.jpg" alt="">
+                <img src="../img/img-5-b.jpg" alt="">
+                <img src="../img/img-6-b.jpg" alt="">
+                <img src="../img/img-7-b.jpg" alt="">
+                <img src="../img/img-8-b.jpg" alt="">
+                <img src="../img/img-9-b.jpg" alt="">
+                <img src="../img/img-10-b.jpg" alt="">
+                <img src="../img/img-11-b.jpg" alt="">
+                <img src="../img/img-12-b.jpg" alt="">
+                <img src="../img/img-13-b.jpg" alt="">
+                <img src="../img/img-14-b.jpg" alt="">
+            </div>
+        </div>
+
+        <div id="bigfoot">
+
+        </div>
+    </div>
+</body>
+<script src="../lib/jquery-1.10.1.min.js"></script>
+<script src="../lib/common.js"></script>
+
+
+<script type="text/javascript" src="../lib/jquery.imagezoom.min.js"></script>
+<script>
+
+    $(function () {
+        var str = location.search;
+        console.log(str.split('?id=')[1] * 1);
+        $.ajax({
+            type: 'post',
+            url: '../api/details.php',
+            data: {
+                id: str.split('?id=')[1] * 1,
+            },
+            success: function (str) {
+                console.log(str);
+                var arr = JSON.parse(str);
+                console.log(arr[0].url.split(','))
+                var html = arr[0].url.split(',').map(function (item) {
+                    return `<li class="">
+                                    <div class="tb-pic tb-s40">
+                                        <a href="###">
+                                            <img src="${item}" mid="${item}" big="${item}">
+                                        </a>
+                                    </div>
+                            </li>`
+                }).join('');
+                // var html2 = arr[0].url.split(',').map(function(item){
+                //     return `<a href="${item}">
+                //                     <img src="${item}" alt="美女" rel="${item}" class="jqzoom" />
+                //                 </a>`
+                // }).join('');
+                // console.log(html)
+                // $('.tb-booth').html(html2);
+                $('.main-nav-top span').html(arr[0].name);
+                $('.price-bot span:eq(1)').html(arr[0].price);
+                $('.price-now span').html(arr[0].price);
+                $('.price-old del span').html(arr[0].oldprice);
+                $('.del li:eq(0) span:eq(1)').html(arr[0].del);
+                $('.del li:eq(1) span:eq(1)').html(arr[0].oldprice - arr[0].price);
+                $('h2').html(arr[0].name);
+                $('#thumblist').html(html);
+                $('.tb-booth a img').attr({ 'src': arr[0].url.split(',')[0], 'rel': arr[0].url.split(',')[0] });
+                $('#thumblist li:eq(0)').addClass("tb-selected");
+                $(document).ready(function () {
+
+                    $(".jqzoom").imagezoom();
+
+                    $("#thumblist li a").on('click', function () {
+                        console.log(123);
+                        $(this).parents("li").addClass("tb-selected").siblings().removeClass("tb-selected");
+
+                        $(".jqzoom").attr('src', $(this).find("img").attr("mid"));
+
+                        $(".jqzoom").attr('rel', $(this).find("img").attr("big"));
+
+                    });
+
+
+
+                });
+            }
+        })
+        $('.main-right div:eq(0) ul li').on('click', function () {
+            $(this).addClass('active').siblings().removeClass('active');
+            $('.price-left span:eq(0)').html($(this).html())
+        })
+        $('#bighead').load('head.html');
+        $('#bigfoot').load('foot.html');
+        $('#addcar').on('mouseover', function () {
+            $(this).addClass('active');
+        })
+        $('#addcar').on('mouseout', function () {
+            $(this).removeClass('active');
+        })
+        $('#addcar').on('click', function () {
+            
+          console.log(str.split('?id=')[1] * 1);
+            if (getCookie('usename')) {
+                
+                $.ajax({
+                    type: 'get',
+                    url: '../api/gwc.php',
+                    data: {
+                        gid: str.split('?id=')[1] * 1,
+                    },
+                    success: function (str) {
+                        var arr = JSON.parse(str);
+                        console.log(arr[0].name);
+                        $.ajax({
+                            type: 'post',
+                            url: '../api/spb.php',
+                            data: {
+                                gid: arr[0].id,
+                                price: arr[0].price,
+                                oldprice: arr[0].oldprice,
+                                num: 1,
+                                url: arr[0].url,
+                                APItype: 'addOrderCar',
+                                uid : getCookie('usename'),
+                                name : arr[0].name,
+                            },
+                            success: function (str) {
+                                console.log(str);
+                                if (str) {
+                                    console.log(str);
+                                    var arr = JSON.parse(str);
+                                    console.log(arr[0].num * 1 + 1);
+                                    $.ajax({
+                                        type: 'post',
+                                        url: '../api/spb.php',
+                                        data: {
+                                            gid: arr[0].gid,
+                                            uid: arr[0].uid,
+                                            num: arr[0].num * 1 + 1,
+                                            APItype: 'orderCarNum',
+
+                                        },
+                                        success: function (str) {
+                                            console.log(str);
+                                           
+                                        }
+                                    })
+                                }
+                            }
+
+
+                        })
+                       
+
+                    }
+                })
+                location.href = 'shoppingcar.html?id=' + str.split('?id=')[1] * 1 ;
+               
+            }
+            // } else {
+            //     location.href = 'shoppingcar.html?id=' + str.split('?id=')[1] * 1;
+            // }
+
+        })
+
+    })
+
+</script>
+
+</html>

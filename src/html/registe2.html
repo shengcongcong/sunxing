@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <style>
+        .main {
+            background: #ccc;
+        }
+
+        .con {
+            width: 700px;
+            margin: 0 auto;
+        }
+
+        .con h2 {
+            padding-top: 50px;
+            color: #000;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .main-center {
+            width: 600px;
+            min-height: 400px;
+            margin: auto;
+            margin-bottom: 60px;
+            padding: 60px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+        }
+
+        .main-center>p:nth-child(1) {
+            margin-bottom: .3em;
+            font-weight: bold;
+            font-size: 1.375em;
+        }
+
+        .main-center>p:nth-child(2) {
+            margin: 0;
+            padding: 0;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            color: inherit;
+        }
+
+        .container label {
+
+            position: absolute;
+            top: -3px;
+            left: auto;
+            max-width: 100%;
+            height: 2.7em;
+            line-height: 2.7em;
+            color: #767676;
+            font-size: 1.142em;
+            cursor: text;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            -webkit-transition: all .2s;
+            transition: all .2s;
+
+            pointer-events: none;
+            -webkit-font-smoothing: antialiased;
+            -webkit-transform: translate3d(0, 3px, 0) scale(1);
+            transform: translate3d(0, 3px, 0) scale(1);
+            -webkit-transform-origin: left top;
+            transform-origin: left top;
+        }
+
+        .container .focus {
+            top: -1.9em;
+            font-size: 0.875em;
+            color: blue;
+        }
+
+        .container .active {
+            border-width: 2px;
+            border-color: blue;
+        }
+
+        .container>input {
+            display: block;
+            width: 100%;
+            color: #000;
+            border: none;
+            border-bottom: 1px solid #DDD;
+            background-color: transparent;
+            box-sizing: border-box;
+            height: 2.7em;
+            line-height: 1.2;
+            font-size: 1.142em;
+            outline: none;
+        }
+
+        .container {
+            position: relative;
+            margin: 2.215em 0;
+
+        }
+
+        .container>p {
+            color: red;
+            font-size: 0.875em;
+            display: none;
+        }
+
+        .container2 {
+            width: 100%;
+            margin-top: 3.75em;
+
+        }
+
+        .container2 input {
+            opacity: .4;
+            background-color: #1428a0;
+            border-color: #1428a0;
+            color: #fff !important;
+            min-height: 3.125em;
+            min-width: 180px;
+            padding: .5em 1.5em;
+            outline: none;
+            cursor: default;
+            border: 1px solid #e1e1e1;
+            border-radius: .5em;
+
+            font-weight: bold;
+            font-size: 1em;
+            line-height: 1.2;
+            letter-spacing: .01em;
+            word-break: break-all;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+
+            vertical-align: middle;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            font-style: inherit;
+            font-variant: inherit;
+            font-family: inherit;
+            text-decoration: none;
+        }
+
+        form li {
+            width: 50%;
+            float: left;
+            min-height: 60px;
+            border-bottom: 2px solid transparent;
+            color: #767676;
+            font-weight: bold;
+            font-size: 1.375em;
+            cursor: pointer;
+            text-align: center;
+            -webkit-box-flex: 1;
+        }
+
+        form .active {
+            border-bottom: 2px solid blue;
+            color: blue;
+        }
+
+        .containers2 {
+            display: none;
+        }
+
+        .container .message {
+            margin: 5px 0;
+            height: 70px;
+            background: paleturquoise;
+            border: 1px solid blue;
+            display: none;
+        }
+
+        .foot {
+            height: 48px;
+            line-height: 48px;
+            background: #ebebeb;
+        }
+
+        .foot-left {
+            float: left;
+        }
+
+        .foot-right {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="con clearfix">
+            <h2>三星账户</h2>
+            <div class="main-center">
+                <p>身份证号</p>
+
+                <p> 为了您正常享用三星会员提供的服务，请输入准确的身份证信息</p>
+                <form action="">
+                    <div class="container">
+                        <label class="label" for="familyname">姓氏</label>
+                        <input type="text" id="familyname" class="tex">
+                        <p>请输入您的姓氏 </p>
+                    </div>
+                    <div class="container">
+                        <label class="label" for="name">名字</label>
+                        <input type="text" id="name" class="tex">
+                        <p>请输入您的名字 </p>
+                    </div>
+                    <div class="container">
+                        <label class="label" for="sfz">身份证验证</label>
+                        <input type="text" id="sfz" class="tex">
+                        <p>请输入id</p>
+                    </div>
+                    <ul class="clearfix">
+                        <li class="email active">邮件</li>
+                        <li class="phone">手机号码</li>
+                    </ul>
+                    <div class="container containers containers1">
+                        <label class="label" for="email">邮件</label>
+                        <input type="text" id="email" class="tex">
+                        <p>请输入电子邮件地址</p>
+                    </div>
+                    <div class="container containers containers2">
+                        <label class="label" for="phone">电话号码</label>
+                        <input type="text" id="phone" class="tex">
+                        <p>请输入电话号码</p>
+                    </div>
+                    <div class="container">
+                        <label class="label" for="password">密码</label>
+                        <input type="text" id="password" class="tex">
+                        <p>请输入密码</p>
+
+                        <div class="message">
+                            <p>最少8位字符；使用字母或数字。请不要使用相同的字符。请勿使用邮箱内的一部分</p>
+                        </div>
+                        <div class="container">
+                            <label class="label" for="password2">确认密码</label>
+                            <input type="text" id="password2" class="tex">
+                            <p>请再次输入密码</p>
+
+                        </div>
+                    </div>
+
+                    <div class="container2">
+                        <input type="button" value="验证" id="btn">
+                    </div>
+                    <p>其他注册方式
+                        <br> 军人证/护照验证
+                    </p>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div class="foot">
+        <div class="con clearfix">
+            <div class="foot-left">
+                <span>条款和条件
+                </span>
+                <span>三星隐私权政策 </span>
+                <span>联系我们</span>
+            </div>
+            <div class="foot-right">
+                © Samsung Electronics Co., Ltd.
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../lib/jquery-1.10.1.min.js"></script>
+<script src="../lib/common.js"></script>
+<script>
+
+    $(function () {
+        var isok1 = false;
+        var isok2 = false;
+        var isok3 = false;
+        var isok4 = false;
+        var isok5 = false;
+        var isok6 = false;
+        var isok7 = false;
+
+        $('.tex').on('focus', function () {
+            $(this).addClass('active')
+            $(this).prev().addClass('focus');
+
+        })
+        $('#password').on('focus', function () {
+            $('.message').css('display', 'block');
+        })
+        $('#password').on('blur', function () {
+            $('.message').css('display', 'none');
+        })
+        $('.tex').on('blur', function () {
+
+            if ($(this).val()) {
+                console.log(isok1, isok2, isok3);
+                if (isok1 && isok2 && isok3 && isok5 && isok6 & isok7) {
+                    console.log(123);
+                    $('#btn').css('cursor', 'default');
+                    $('#btn').css('opacity', 1);
+                    $('#btn').removeAttr('disabled');
+                    $('#btn').on('click', function () {
+
+                        $.ajax({
+                            type: 'post',
+                            url: '../api/registe.php',
+                            asnyc: false,
+                            data: {
+                                xing: $('#familyname').val(),
+                                ming: $('#name').val(),
+                                sfz: $('#sfz').val(),
+                            },
+                            success: function (str) {
+                                var arr = JSON.parse(str);
+                                if (str != 'no') {
+                                    $.ajax({
+                                        type: 'post',
+                                        url: '../api/registe2.php',
+                                        data: {
+                                            id: arr[0].id,
+                                            email: $('#email').val(),
+                                            phone: $('#phone').val(),
+                                            password: $('#password').val(),
+                                        },
+                                        success: function (str) {
+                                            console.log(str);
+                                            if (str != 'nono') {
+                                               
+                                                if ($('#email').val()) {
+                                                    location.href = 'shouye.html?email=' + $('#email').val();
+                                                    setCookie('usename',$('#email').val(),1);
+                                                } else {
+                                                    location.href = 'shouye.html?phone=' + $('#phone').val();
+                                                    setCookie('usename',$('#phone').val(),1);
+                                                }
+                                                
+                                                $('input').val('');
+                                            } else {
+                                                alert('验证还有误')
+                                            }
+                                        }
+                                    })
+
+                                } else {
+                                    alert('验证有误')
+                                }
+
+                            }
+                        })
+
+
+
+                    })
+                } else {
+                    $('#btn').css('cursor', 'pointer');
+                    $('#btn').css('opacity', 0.5);
+                    $('#btn').attr('disabled', 'disabled')
+                }
+
+            } else {
+                $(this).removeClass('active')
+                $(this).prev().removeClass('focus');
+            }
+        })
+
+        $('.tex').on('input', function () {
+            if ($(this).val()) {
+                $(this).css({ 'border-width': 2, 'border-color': 'blue' });
+                $(this).prev().css('color', 'blue');
+                $(this).next().css('display', 'none');
+
+
+                var reg = /^[".chr(0xa1)."-".chr(0xff)."A-Za-z0-9_]+$/;
+                var reg2 = /^(\d{17}|\d{14})[\dX]$/;
+                var reg3 = /^\w+([\-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+                var reg4 = /^1[3-9]\d{9}$/;
+                var reg5 = /^[a-zA-Z]\w{5,17}$/;
+                if ($(this).attr('id') == 'password2') {
+                    console.log()
+                    if ($('#password2').val() == $('#password').val()) {
+                        isok7 = true;
+                    } else {
+                        $('#password2').next().css('display', 'block');
+                        $('#password2').next().html('密码不对');
+                        isok7 = false;
+                    }
+                }
+                if ($(this).attr('id') == 'password') {
+
+                    if ((reg5.test($('#password').val()))) {
+                        isok6 = true;
+                    } else {
+                        $('#password').next().css('display', 'block');
+                        $('#password').next().html('密码格式不对');
+                        isok6 = false;
+                    }
+                }
+                if ($(this).attr('id') == 'phone') {
+
+                    if ((reg4.test($('#phone').val()))) {
+                        isok5 = true;
+                    } else {
+                        $('#phone').next().css('display', 'block');
+                        $('#phone').next().html('垃圾电话号码');
+                        isok5 = false;
+                    }
+                }
+                if ($(this).attr('id') == 'email') {
+
+                    if ((reg3.test($('#email').val()))) {
+                        isok5 = true;
+                    } else {
+                        $('#email').next().css('display', 'block');
+                        $('#email').next().html('电子邮件地址无效。');
+                        isok5 = false;
+                    }
+
+
+                }
+                if ($(this).attr('id') == 'name') {
+                    if ((reg.test($('#name').val()))) {
+                        isok1 = true;
+                    } else {
+                        $('#name').next().css('display', 'block');
+                        $('#name').next().html('不能包含特殊字符');
+                        isok1 = false;
+                    }
+                }
+                if ($(this).attr('id') == 'familyname') {
+                    if ((reg.test($('#familyname').val()))) {
+                        isok2 = true;
+                    } else {
+                        $('#familyname').next().css('display', 'block');
+                        $('#familyname').next().html('不能包含特殊字符');
+                        isok2 = false;
+                    }
+                }
+                if ($(this).attr('id') == 'sfz') {
+                    if ((reg2.test($('#sfz').val()))) {
+                        isok3 = true;
+                    } else {
+                        $('#sfz').next().css('display', 'block');
+                        $('#sfz').next().html('必须输入15或18位数字或字符');
+                        isok3 = false;
+                    }
+                }
+
+            } else {
+                $(this).css({ 'border-width': 2, 'border-color': 'red' });
+                // $(this).prev().removeClass('focus');
+                $(this).prev().css('color', 'red');
+                $(this).next().css('display', 'block');
+                if ($(this).attr('id') == 'name') {
+                    $('#name').next().html('请输入您的姓氏 ');
+                }
+                if ($(this).attr('id') == 'familyname') {
+                    $('#familyname').next().html('请输入您的名字');
+
+                }
+                if ($(this).attr('id') == 'sfz') {
+                    $('#sfz').next().html('请输入id');
+
+                }
+                if ($(this).attr('id') == 'email') {
+                    $('#email').next().html('请输入电子邮箱');
+                }
+                if ($(this).attr('id') == 'phone') {
+                    $('#phone').next().html('请输入手机号 ');
+
+                }
+                if ($(this).attr('id') == 'password') {
+                    $('#password').next().html('请输入密码');
+
+                }
+                if ($(this).attr('id') == 'password2') {
+                    $('#password2').next().html('请再次输入密码');
+
+                }
+            }
+
+        })
+        $('form ul ').on('click', '.phone', function () {
+
+            $('.containers2').css('display', 'block');
+            $('.containers1').css('display', 'none');
+            $(this).addClass('active').siblings().removeClass('active');
+            $('.containers input').focus();
+
+        })
+        $('form ul ').on('click', '.email', function () {
+
+            $('.containers1').css('display', 'block');
+            $('.containers2').css('display', 'none');
+            $(this).addClass('active').siblings().removeClass('active');
+            $('.containers input').focus();
+
+        })
+
+    })
+</script>
+
+</html>

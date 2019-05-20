@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+    <style>
+        .bar-nav {
+            /* width: 20%; */
+            background: #ccc;
+
+        }
+
+        .bar-nav h3 {
+            padding: 15px 0 15px 30px;
+            font-weight: bold;
+        }
+
+        .bar-nav .bar-nav-list {
+            background: white;
+            border-left: 10px solid #f2f2f2;
+            border-right: 10px solid #f2f2f2;
+            border-bottom: 20px solid #f2f2f2;
+            padding: 2px 18px;
+            font-size: 16px;
+        }
+
+        .bar-nav .bar-nav-phone dt {
+            color: #1428a0;
+            font-weight: bold;
+            padding: 10px 0;
+
+        }
+
+        .bar-nav .bar-nav-phone dd {
+
+            padding: 10px 30px;
+
+        }
+
+        .bar-nav ul li {
+
+            padding: 10px 0;
+
+        }
+
+        .bar-nav span {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            border: 1px solid #ccc;
+            margin: 10px 5px;
+            cursor: pointer;
+        }
+        .bar-nav span:nth-child(1){
+           background: black
+        }
+        .bar-nav span:nth-child(2){
+           background:  blue
+        }
+        .bar-nav span:nth-child(3){
+           background: white
+        }
+        .bar-nav span:nth-child(4){
+           background: pink
+        }
+        .bar-nav span:nth-child(5){
+           background: red
+        }
+        .bar-nav span:nth-child(6){
+           background: green
+        }
+        .bar-nav span:nth-child(7){
+           background: purple
+        }
+        .bar-nav span:nth-child(8){
+           background: slategrey
+        }
+        .bar-nav span:nth-child(9){
+           background: #ccc
+        }
+        .bar-nav span:nth-child(10){
+           background: orange
+        }
+        .bar-nav span:nth-child(11){
+           background: yellow
+        }
+        .bar-nav span:nth-child(12){
+           background: cornsilk
+        }
+        .bar-nav span:nth-child(13){
+           background: saddlebrown
+        }
+        .clear{
+            color: black;
+            text-align: center;
+            display: block;
+            margin: 20px auto;
+            text-decoration: underline;;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bar-nav">
+        <h3>分类</h3>
+        <div class="bar-nav-list">
+            <dl class="bar-nav-phone">
+                <dt>智能手机</dt>
+                <dd>Galaxy S系列</dd>
+                <dd>Galaxy Note系列</dd>
+                <dd>Galaxy A系列</dd>
+                <dd>三星 W系列</dd>
+            </dl>
+        </div>
+
+        <h3>价格</h3>
+        <div class="bar-nav-list">
+            <ul>
+                <li>
+                    <input type="checkbox" id="che1">
+                    <label for="che1">1100-1699元</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="che2">
+                    <label for="che2">2400-3899元</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="che3">
+                    <label for="che3">3900-4799元</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="che4">
+                    <label for="che4">4800-6699元</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="che5">
+                    <label for="che5">6700以上</label>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <h3>颜色</h3>
+        <div class="bar-nav-list">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <h3>促销活动</h3>
+        <ul class="bar-nav-list">
+            <li>
+                <input type="checkbox" id="che6">
+                <label for="che1">免息</label>
+            </li>
+            <li>
+                <input type="checkbox" id="che7">
+                <label for="che2">买赠</label>
+            </li>
+            <li>
+                <input type="checkbox" id="che8">
+                <label for="che3">立减</label>
+            </li>
+            <li>
+                <input type="checkbox" id="che9">
+                <label for="che4">以旧换新</label>
+            </li>
+        </ul>
+    </div>
+    <a href="" class="clear">清除所有条件</a>
+
+</body>
+
+</html>

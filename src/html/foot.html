@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="foot2">
+        <div class="nav-container">
+            <div class="foot-two clearfix">
+                <div class="foot-two-left float-left clearfix">
+                    <dl>
+                        <dt>
+                            <a href="###">我的三星</a>
+                        </dt>
+                        <dd>
+                            <a href="###"> 我的订单</a>
+                        </dd>
+                        <dd>
+                            <a href="###"> 我的积分</a>
+                        </dd>
+                        <dd>
+                            <a href="###"> 优惠券</a>
+                        </dd>
+                        <dd>
+                            <a href="###"> 个人资料</a>
+                        </dd>
+                        <dd>
+                            <a href="###"> 收货地址</a>
+                        </dd>
+                        <dd>
+                            <a href="###"> 售后网点查询</a>
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>
+                            <a href="###">网上购物指南</a>
+                        </dt>
+                        <dd>
+                            <a href="###"> 购物指南</a>
+                        </dd>
+                        <dd>
+                            <a href="###"> 支付方式</a>
+                        </dd>
+                        <dd>
+                            <a href="###"> 订单及发票</a>
+                        </dd>
+                        <dd>
+                            <a href="###"> 个人资料</a>
+                        </dd>
+                        <dd>
+                            <a href="###"> 售后服务</a>
+                        </dd>
+                        <dd>
+                            <a href="###"> 会员及优惠</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <a href="###">服务支持</a>
+                        </dt>
+                        <dd>
+                            <a href="###"> 常见问题</a>
+                        </dd>
+                        <dd>
+                            <a href="###"> 关于商城</a>
+                        </dd>
+                        <dd>
+                            <a href="###"> 关于三星</a>
+                        </dd>
+                        <dd>
+                            <a href="###"> 联系我们</a>
+                        </dd>
+                        <dd>
+                            <a href="###"> 使用条款</a>
+                        </dd>
+                        <dd>
+                            <a href="###"> 加为书签</a>
+                        </dd>
+                    </dl>
+                    <p>© 1995-2019 三星（中国）投资有限公司 版权所有</p>
+                </div>
+                <div class="foot-two-right float-right">
+                    <p>官方分享</p>
+                    <a href="http://weibo.com/samsungelectronics"></a>
+                    <a href="http://support-cn.samsung.com/supportcn/wechat/index.html"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="foot3 ">
+        <div class="nav-container clearfix">
+            <div class="foot3-left float-left">
+                <a href="###"> 服务条款 </a>
+                <a href="###"> 隐私政策</a>
+                <a href="###"> 访客协议</a>
+                <p> 此网页最好使用IE9及以上浏览器、谷歌浏览器、苹果浏览器和其他新式浏览器进行浏览。</p>
+
+            </div>
+            <div class="foot3-right float-right">
+
+                <p> 三星（中国）投资有限公司授权北京鹏泰宝尊电子商务有限公司运营三星网上商城并销售产品</p>
+                <a href="###">
+                    <img src="../img/icon-record.png" alt=""> 京公网安备 11010502037127号 营业执照</a>
+            </div>
+        </div>
+    </div>
+    <div class="foot4"></div>
+
+    <div class="consultation">
+        在线咨询
+    </div>
+    <div class="consultation-block">
+        <div class="consultation-head">
+            <span>欢迎来到三星商城</span>
+            <img src="../img/chat-close.png" alt="">
+        </div>
+        <div class="consultation-main">
+            <p>我们竭诚为您服务！
+            </p>
+            <span>您需要何种帮助？请选择类型。</span>
+            <ul>
+                <li>
+                    <dl>
+                        <dt></dt>
+                        <dd>
+                            <p>购物咨询</p>
+                            <p>产品介绍、活动说明</p>
+                        </dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt></dt>
+                        <dd>
+                            <p>售后服务</p>
+                            <p>售后问题、订单问题</p>
+                        </dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt></dt>
+                        <dd>
+                            <p>购物指南</p>
+                            <p>购物流程 常见问题</p>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+<script>
+    $(function () {
+        $('.consultation').on('click', function () {
+            $('.consultation-block').css('display', 'block');
+            $('.consultation').css('display', 'none');
+        })
+        $('.header-right li:eq(1)').on('click', function () {
+            $('.consultation-block').css('display', 'block');
+            $('.consultation').css('display', 'none');
+        })
+        $('.consultation-head img').click(function () {
+            // e.stopPropagation();
+            // e.preventDefault();
+
+            $('.consultation-block').css('display', 'none');
+            $('.consultation').css('display', 'block');
+
+            return false;
+
+        })
+        $('.swiper-pagination2 span').on('click', function () {
+            $(this).attr('role', '');
+            console.log(1233456);
+        })
+        $('.foot-two-right a').on('mouseover',function(){
+        $(this).css('background','blue')
+    })
+    $('.foot-two-right a').on('mouseout',function(){
+        $(this).css('background','black')
+    })
+    })
+</script>
+
+</html>

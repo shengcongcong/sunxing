@@ -1,0 +1,21 @@
+var live800_SpeCode="";
+var live800_SpeCodeLeaveUrl="";
+var live800_companyID="8146";
+var live800_protocol="http";
+var live800_isMobile="0";
+var enterurl="https://www.samsungeshop.com.cn/member/login.htm?returnUrl=/search/phone";
+var companyStatus=0;
+var isNewChatBox=true;
+var live800_static_url="http://st5.live800.com/static";
+var live800_baseUrl="care3.live800.com";
+var live800_baseHtmlUrl="care3.live800.com";
+var live800_baseWebApp="/live800";
+var live800_baseChatHtmlDir="/chatClient";
+var live800_defined_params="k=1";
+var live800_configID="1471";
+var live800_codeType="custom";
+var live800_configContent="live800_text=%25u5728%25u7EBF%25u5BA2%25u670D&live800_switch=0";
+var showTextIcon="1";
+
+document.write("<scr"+"ipt language=\"javascript\" src=\"https://st5.live800.com/static/chatClient/script/utils.js\" charset=\"UTF-8\"></scr"+"ipt>");
+document.write("<scr"+"ipt language=\"javascript\" src=\"https://st5.live800.com/static/chatClient/textStatic.js\" charset=\"UTF-8\"></scr"+"ipt>");

@@ -1,0 +1,374 @@
+_ymp = ((typeof(_ymp)!= "undefined")?_ymp:[]);
+_ymp.adCustID = '23446031';
+_ymp.productID = '0';
+_ymp.monitorID = '0';
+_ymp.siteID = '163b5759f83';
+_ymp.mediaID = null;
+_ymp.adPostionID = null;
+_ymp.monitorType = '1';
+_ymp.exposeID = 'LU3RXAoADFNoXgIA';
+_ymp._atma = '1557214688';
+_ymp.logType = null;
+_ymp.logVerion = '1';
+_ymp.yoyiURL = 'databank.yoyi.com.cn/l.gif?';
+_ymp.yoyiId = null;
+
+
+_ymp.sourceURL = null;
+_ymp.referrerURL = null;
+_ymp.landingURL = null;
+_ymp.trackSite = 1;
+_ymp.trackHeatMap = 2;
+_ymp.yoyiTrackURL = 'databank.yoyi.com.cn/e.gif?';
+_ymp.protocol = 'https:' == document.location.protocol ? 'https://' : 'http://'
+
+_ymp.setCookie = function(name, value, expireHours, domain) {
+    var cookieString = name + "=" + escape(value);
+    if (expireHours && expireHours > 0) {
+        var date = new Date();
+        date.setTime(date.getTime + expireHours * 3600 * 1000);
+        cookieString = cookieString + ";expire=" + date.toGMTString();
+    }
+    if (domain) {
+        var date = new Date();
+        date.setTime(date.getTime + expireHours * 3600 * 1000);
+        cookieString = cookieString + ";domain=" + domain;
+    }
+    document.cookie = cookieString;
+}
+
+_ymp.getCookie = function(cookie_name) {
+    var results = document.cookie.match('(^|;) ?' + cookie_name + '=([^;]*)(;|$)');
+    if (results) return (unescape(results[2]));
+    else return null;
+}
+
+_ymp.touchTime = _ymp.getCookie('_yatma');
+if (_ymp.touchTime == null) _ymp.setCookie('_yatma', Math.floor((new Date()).getTime() / 1000), 20 * 24, document.domain);
+
+_ymp.defaultParams = [{
+        "name": "cust",
+        "value": _ymp.adCustID
+    },
+    {
+        "name": "prd",
+        "value": _ymp.productID
+    },
+    {
+        "name": "mon",
+        "value": _ymp.monitorID
+    },
+    {
+        "name": "site",
+        "value": _ymp.siteID
+    },
+    {
+        "name": "touchTime",
+        "value": _ymp.touchTime
+    }
+];
+
+_ymp.jointParams = function(params) {
+    var returnParamStr = "";
+    for (var i = 0; i < params.length; i++) {
+        returnParamStr = returnParamStr + params[i].name + "=" + encodeURIComponent(params[i].value) + "&";
+    }
+    return returnParamStr;
+}
+
+_ymp.sendMsg = function(type, params) {
+    // 如果是事件监测 用yoyiTrackURL
+    // 因无法确定历史版本是否跟文件名是否有关联
+    var url = _ymp.protocol + this.yoyiURL + "type=" + type + "&" + _ymp.jointParams(_ymp.defaultParams) + _ymp.jointParams(params);
+    d = new Image(1, 1);
+    d.src = url + "r=" + Math.random();
+    d.onload = function() {
+        d.onload = null;
+    }
+}
+
+_ymp.sendActionMsg = function(type, params) {
+    var defaultParams = [{
+            "name": "cust",
+            "value": _ymp.adCustID
+        },
+        {
+            "name": "prd",
+            "value": _ymp.productID
+        },
+        {
+            "name": "site",
+            "value": _ymp.siteID
+        },
+        {
+            "name": "touchTime",
+            "value": _ymp.touchTime
+        }
+    ];
+    var url = _ymp.protocol + this.yoyiTrackURL + "type=" + type + "&" + _ymp.jointParams(defaultParams) + _ymp.jointParams(params);
+    d = new Image(1, 1);
+    d.src = url + "r=" + Math.random();
+    d.onload = function() {
+        d.onload = null;
+    }
+}
+
+_ymp.sendMapping = function(a) {
+    d = new Image(1, 1);
+    d.src = a;
+    d.onload = function() {
+        d.onload = null;
+    }
+}
+
+_ymp._getReferrer = function() {
+    var referrer = '';
+    try {
+        referrer = window.top.document.referrer;
+    } catch (e) {
+        if (window.parent) {
+            try {
+                referrer = window.parent.document.referrer;
+            } catch (e2) {
+                referrer = '';
+            }
+        }
+    }
+    if (referrer === '') {
+        referrer = document.referrer;
+    }
+    return referrer;
+};
+
+
+_ymp.closeEvent = function() {
+    if (_ymp.monitorType == _ymp.trackSite || _ymp.monitorType == _ymp.trackHeatMap) {
+        _ymp.sourceURL = window.location.href;
+        _ymp.referrerURL = _ymp._getReferrer();
+        //windows close
+        window.onbeforeunload = function(event) {
+            var closet = Math.floor((new Date()).getTime() / 1000);
+            var params = [{
+                    "name": "url",
+                    "value": _ymp.sourceURL
+                },
+                {
+                    "name": "ref",
+                    "value": _ymp.referrerURL
+                },
+                {
+                    "name": "closeTime",
+                    "value": closet
+                }
+            ];
+            _ymp.sendMsg('Close', params);
+        }
+    }
+}
+
+_ymp.pageView = function(sourceURL) {
+    if (_ymp.monitorType == _ymp.trackSite || _ymp.monitorType == _ymp.trackHeatMap) {
+        _ymp.sourceURL = sourceURL || window.location.href;
+        _ymp.referrerURL = _ymp._getReferrer();
+        var arriveTime = Math.floor((new Date()).getTime() / 1000);
+        var params = [{
+                "name": "url",
+                "value": _ymp.sourceURL
+            },
+            {
+                "name": "ref",
+                "value": _ymp.referrerURL
+            },
+            {
+                "name": "arriveTime",
+                "value": arriveTime
+            }
+        ];
+        _ymp.sendMsg('Access', params);
+    }
+}
+
+_ymp.trackADExpose = function(params) {
+    var opt = ((typeof(params.options) != "undefined") ? params.options : null);
+    _ymp.sourceURL = window.location.href;
+    _ymp.referrerURL = _ymp._getReferrer();
+    var urlparams = [{
+            "name": "url",
+            "value": _ymp.sourceURL
+        },
+        {
+            "name": "ref",
+            "value": _ymp.referrerURL
+        },
+        {
+            "name": "pvid",
+            "value": _ymp.exposeID
+        },
+        {
+            "name": "md",
+            "value": _ymp.mediaID
+        },
+        {
+            "name": "adz",
+            "value": _ymp.adPostionID
+        }
+    ];
+    while (opt && opt.length > 0) {
+        urlparams.push(opt.pop());
+    }
+    _ymp.sendMsg('AdShow', urlparams);
+}
+
+//Json To String 
+_ymp.JsonToString = function(o) {
+    var arr = [];
+    var fmt = function(s) {
+        if (typeof s == 'object' && s != null) return _ymp.JsonToString(s);
+        return /^(string|number)$/.test(typeof s) ? "\"" + s + "\"" : s;
+    }
+    for (var i in o) arr.push("\"" + i + "\":" + fmt(o[i]));
+    return '{' + arr.join(',') + '}';
+}
+_ymp.trackADEvent = function(monitorID) {
+    _ymp.sourceURL = window.location.href;
+    _ymp.referrerURL = _ymp._getReferrer();
+    var arriveTime = Math.floor((new Date()).getTime() / 1000);
+    var params = [{
+            "name": "url",
+            "value": _ymp.sourceURL
+        },
+        {
+            "name": "ref",
+            "value": _ymp.referrerURL
+        },
+        {
+            "name": "arriveTime",
+            "value": arriveTime
+        },
+        {
+            "name": "mon",
+            "value": monitorID
+        }
+    ];
+    this.sendActionMsg('Action', params);
+}
+
+_ymp.trackADClick = function(params) {
+    var opt = ((typeof(params.options) != "undefined") ? params.options : null);
+    var urlparams = [{
+            "name": "url",
+            "value": _ymp.sourceURL
+        },
+        {
+            "name": "ref",
+            "value": _ymp.referrerURL
+        },
+        {
+            "name": "pvid",
+            "value": _ymp.exposeID
+        },
+        {
+            "name": "md",
+            "value": _ymp.mediaID
+        },
+        {
+            "name": "adz",
+            "value": _ymp.adPostionID
+        }
+    ];
+    while (opt && opt.length > 0) {
+        urlparams.push(opt.pop());
+    }
+    this.sendMsg('AdClick', urlparams);
+}
+
+_ymp.trackEvent = function(params) {
+    var actid = null;
+    var url = null;
+    if (typeof(params.point) != "undefined") {
+        actid = params.point;
+    } else {
+        alert("please add your point, point is required for trackEvent");
+    }
+    var opt = ((typeof(params.options) != "undefined") ? params.options : null);
+    var urlparams = [{
+            "name": "act",
+            "value": actid
+        },
+        {
+            "name": "url",
+            "value": _ymp.sourceURL
+        }
+    ];
+    var arr = [];
+    while (opt && opt.length > 0) {
+        var val = opt.pop();
+        var type = typeof(val.value);
+        if (type == 'object') {
+            for (var j = 0; j < val.value.length; j++) {
+                a = _ymp.JsonToString(val.value[j]);
+                arr.push(a);
+            }
+            urlparams.push({
+                "name": val.name,
+                "value": '[' + arr.join(',') + ']'
+            });
+        } else {
+            urlparams.push(val);
+        }
+    }
+    this.sendMsg('Action', urlparams);
+}
+
+_ymp.push = function(params) {
+    //处理为记录的log
+    while (_ymp.length > 0) {
+        t = _ymp.pop();
+        _ymp[t.action](t);
+    }
+    _ymp[params.action](params);
+}
+while (_ymp.length > 0) {
+    _ymp.push(_ymp.pop());
+}
+
+
+_ymp.mappingEvent = function() {
+    var tencent = encodeURIComponent(_ymp.protocol + 'cm.l.qq.com/?dspid=10008&dspuid=@[YOYICOOKIEID]&gettuid=1')
+    var urls = [{
+        name: "yoyi_u2", //Tanx
+        url: _ymp.protocol + "cms.tanx.com/t.gif?tanx_nid=29227910&tanx_cm&extendata1=databank"
+    }, {
+        name: "yoyi_u3", //Baidu
+        url: _ymp.protocol + "cm.pos.baidu.com/pixel?dspid=6470425&ext_data=databank"
+    }, {
+        name: "yoyi_u7", //Youku
+        url: _ymp.protocol + "cm.miaozhen.atm.youku.com/cm.gif?dspid=11110"
+    }, {
+        name: "yoyi_u9", //tencent
+        url: _ymp.protocol + "mapping.yoyi.com.cn/s/rd?jurl=" + tencent
+    }, {
+        name: "yoyi_u17", //souhu
+        url: _ymp.protocol + "t.go.sohu.com/cm.gif?ver=1.0&mid=10039&uid=&ext=databank"
+    }];
+
+    if (window.addEventListener) window.addEventListener("load", sendMapping, false);
+    else if (window.attachEvent) window.attachEvent("onload", sendMapping);
+    else window.onload = sendMapping
+
+    function sendMapping() {
+        for (var ui = 0; ui < urls.length; ui++) {
+            if (_ymp.getCookie(urls[ui].name) == null) {
+                setTimeout((function (num) {                    
+                    _ymp.sendMapping(urls[num].url)          
+                })(ui))
+                _ymp.setCookie(urls[ui].name, "true", 168)
+            }
+        }
+    }
+    
+}
+
+_ymp.closeEvent()
+_ymp.pageView()
+_ymp.mappingEvent()
